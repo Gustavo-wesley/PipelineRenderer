@@ -5,24 +5,79 @@
 #include "screen.h"
 #include "draw.h"
 
+int lerInt(const char *msg);
+
 int main()
 {
-    int **tela;
+    int option = -1;
 
+    int **tela;
     tela = criaTela(nColuna, nLinha);
 
-    desenhaLinha(tela, 10, 10, 80, 8);//Oct0
-    desenhaLinha(tela, 81, 15, 90, 2);//Oct1
-    desenhaLinha(tela, 78, 18, 70, 12);//Oct2
-    desenhaLinha(tela, 65, 25, 5, 22);//Oct3
-    desenhaLinha(tela, 75, 27, 5, 32);//Oct4
-    desenhaLinha(tela, 13, 35, 9, 42);//Oct5
-    desenhaLinha(tela, 20, 38, 27, 47);//Oct6
-    desenhaLinha(tela, 10, 15, 80, 23);//Oct7
 
-    imprimeTela(tela);
+    do
+    {
+        limpaTerminal();
+        
+        printf("\t\t\tMENU\t\t\t");
+        printf("\n0 - Sair");
+        printf("\n1 - Carregar objeto"); 
 
-    limpaTela(tela);
+        option = lerInt("\nOpcao: ");
+
+        switch (option)
+        {
+            case 0:
+            break;
+
+            case 1: 
+
+            break;
+        
+            default:
+                printf("\nValor nao corresponde as opcoes");
+                break;
+                
+        }
+    } 
+    while(option != 0);
+    
     
     return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int lerInt(const char *msg) {
+    char buffer[100];
+    int valor;
+    char *end;
+
+    while (1) {
+        printf("%s", msg);
+
+        if (!fgets(buffer, sizeof(buffer), stdin)) {
+            printf("\nErro de leitura\n");
+            continue;
+        }
+
+        valor = strtol(buffer, &end, 10);
+
+        // validação real
+        if (end == buffer || (*end != '\n' && *end != '\0')) {
+            printf("\nEntrada invalida! Digite um numero.\n");
+            continue;
+        }
+
+        return valor;
+    }
 }

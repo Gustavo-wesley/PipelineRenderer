@@ -7,5 +7,6 @@ static int nColuna = 100;
 int **criaTela(int larg, int alt);
 void imprimeTela(int **tela);
 void limpaTela(int **tela);
+void limpaTerminal();
 
 #endif
