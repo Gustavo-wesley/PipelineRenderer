@@ -16,7 +16,7 @@ void desenhaLinha(int **tela, int x0, int y0, int x1, int y1)
 
     while (1)
     {
-        if (x0 >= 0 && x0 < nColuna && y0 >= 0 && y0 < nLinha)
+        if (x0 >= 0 && x0 < HEIGHT && y0 >= 0 && y0 < WIDTH)
         {
             tela[y0][x0] = 1;
         }

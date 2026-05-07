@@ -1,11 +1,11 @@
 CC = gcc
+
 CFLAGS = -Wall -g -Iinclude
 
-SRC = main/main.c draw/draw.c screen/screen.c transform/transform.c
-OBJ = main.o draw.o screen.o transform.o
+OBJ = main.o draw.o screen.o transform.o viewPort.o object.o
 
 app: $(OBJ)
-	$(CC) $(OBJ) -o app
+	$(CC) $(OBJ) -o app -lm
 
 main.o: main/main.c
 	$(CC) $(CFLAGS) -c main/main.c -o main.o
@@ -18,6 +18,12 @@ screen.o: screen/screen.c
 
 transform.o: transform/transform.c
 	$(CC) $(CFLAGS) -c transform/transform.c -o transform.o
+
+viewPort.o: viewPort/viewPort.c
+	$(CC) $(CFLAGS) -c viewPort/viewPort.c -o viewPort.o
+
+object.o: object/object.c
+	$(CC) $(CFLAGS) -c object/object.c -o object.o
 
 clean:
 	del *.o app.exe
