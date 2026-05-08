@@ -41,6 +41,8 @@ int main()
 
         option = lerInt("\n\nOpcao: ");
 
+        printf("\n\nTESTESTESTE");
+
         switch (option)
         {
             case 1:
